@@ -2,6 +2,7 @@
 
 import scrapy
 from scrapy.selector import Selector
+from BigDeals_scrapy.items import BigdealsScrapyItem
 
 
 class BigDealSpider(scrapy.Spider):
@@ -17,6 +18,7 @@ class BigDealSpider(scrapy.Spider):
 
         sel = Selector(response)
         trs = sel.xpath('//div[@id="divContainer"]/table/tbody/tr')
+        items = []
         for tr in trs:
             # 交易时间
             date = tr.xpath("td[1]/text()").extract()
@@ -36,3 +38,16 @@ class BigDealSpider(scrapy.Spider):
             seller = tr.xpath("td[8]/text()").extract()
             # 证券类型
             type = tr.xpath("td[9]/text()").extract()
+
+            item = BigdealsScrapyItem()
+            item["date"] = date
+            item["code"] = code
+            item["name"] = name
+            item["price"] = price
+            item["num"] = num
+            item["totalPrice"] = totalPrice
+            item["buyer"] = buyer
+            item["seller"] = seller
+            item["type"] = type
+            items.append(item)
+        return items
