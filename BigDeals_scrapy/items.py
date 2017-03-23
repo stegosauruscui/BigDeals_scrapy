@@ -8,6 +8,9 @@
 import scrapy
 
 # 项目中的item文件
+"""
+所谓Item容器就是将在网页中获取的数据结构化保存的数据结构，类似于Python中字典
+"""
 class BigdealsScrapyItem(scrapy.Item):
     # define the fields for your item here like:
     # 交易时间

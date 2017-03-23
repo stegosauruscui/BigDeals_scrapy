@@ -64,9 +64,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'BigDeals_scrapy.pipelines.BigdealsScrapyPipeline': 300,
-#}
+# 在编写完pipeline后，为了能够启动它，必须将其加入到ITEM_PIPLINES配置中
+ITEM_PIPELINES = {
+    'BigDeals_scrapy.pipelines.BigdealsScrapyPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
