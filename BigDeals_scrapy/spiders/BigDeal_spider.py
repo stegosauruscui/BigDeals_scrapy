@@ -35,10 +35,10 @@ class BigDealSpider(scrapy.Spider):
         :return:
         """
         # 抓取整个网页
-        # return self.crawl_all_pages()
+        return self.crawl_all_pages()
 
         # 抓取当天的交易数据
-        return self.crawl_today_pages()
+        # return self.crawl_today_pages()
 
     # 抓取今天的交易数据
     def crawl_today_pages(self):
@@ -47,9 +47,9 @@ class BigDealSpider(scrapy.Spider):
         :return:
         """
         # 测试
-        today_date = '2017-03-31'
-        # today_date = time.strftime('%Y-%m-%d', time.localtime())
-        pages_num = 2 + 1
+        # today_date = '2017-03-31'
+        today_date = time.strftime('%Y-%m-%d', time.localtime())
+        pages_num = 4 + 1
         for i in range(1, pages_num):
             # meta (dict) – the initial values for the Request.meta attribute.
             # If given, the dict passed in this parameter will be shallow copied.
@@ -61,7 +61,7 @@ class BigDealSpider(scrapy.Spider):
         # http://vip.stock.finance.sina.com.cn/q/go.php/vInvestConsult/kind/dzjy/index.phtml?p=1895
         # 可见网页至多就1895个,那么最简单的办法就是迭代的对1895个网页爬取
         # TODO 这个pages_num需要查看网页进行修改
-        pages_num = 1895 + 1
+        pages_num = 1898 + 1
         for i in range(1, pages_num):
             link_url = 'http://vip.stock.finance.sina.com.cn/q/go.php/vInvestConsult/kind/dzjy/index.phtml?p=' + str(i)
             yield scrapy.Request(url=link_url, callback=self.parse_page)
