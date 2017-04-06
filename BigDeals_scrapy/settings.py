@@ -17,9 +17,10 @@ NEWSPIDER_MODULE = 'BigDeals_scrapy.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'BigDeals_scrapy (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.54 Safari/536.5'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -27,7 +28,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 0.25   # 250 ms of delay
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -68,6 +69,13 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
     'BigDeals_scrapy.pipelines.BigdealsScrapyPipeline': 300,
 }
+# MySQL的配置信息
+MYSQL_HOST = '127.0.0.1'
+MYSQL_DBNAME = 'BigDeal'        # 数据库名字，请修改
+MYSQL_USER = 'cjl'            # 数据库账号，请修改
+MYSQL_PASSWD = 'cjl1234'       # 数据库密码，请修改
+
+MYSQL_PORT = 3306              # 数据库端口，在dbhelper中使用
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
