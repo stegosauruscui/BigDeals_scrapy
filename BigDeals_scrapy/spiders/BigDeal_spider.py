@@ -35,10 +35,10 @@ class BigDealSpider(scrapy.Spider):
         :return:
         """
         # 抓取整个网页
-        return self.crawl_all_pages()
+        # return self.crawl_all_pages()
 
         # 抓取当天的交易数据
-        # return self.crawl_today_pages()
+        return self.crawl_today_pages()
 
     # 抓取今天的交易数据
     def crawl_today_pages(self):
