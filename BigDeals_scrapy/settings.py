@@ -71,7 +71,7 @@ ITEM_PIPELINES = {
 }
 # MySQL的配置信息
 MYSQL_HOST = '127.0.0.1'
-MYSQL_DBNAME = 'BigDeal'        # 数据库名字，请修改
+MYSQL_DBNAME = 'big_detals'        # 数据库名字，请修改
 MYSQL_USER = 'cjl'            # 数据库账号，请修改
 MYSQL_PASSWD = 'cjl1234'       # 数据库密码，请修改
 
